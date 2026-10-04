@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#152b40">
+    <title>Company workspace · Centralign</title>
+    <link rel="stylesheet" href="/company.css">
+    <script src="/replay-data.js"></script>
+    <script src="/replay-shim.js"></script>
+
+    <script src="/company.js" defer></script>
+  </head>
+  <body>
+    <header class="company-topbar">
+      <a class="company-brand" href="/company?tab=inbox" aria-label="Company workspace inbox">
+        <span class="company-mark" aria-hidden="true">C</span>
+        <span>Centralign</span>
+      </a>
+      <div class="company-heading">
+        <h1>Company workspace</h1>
+        <span class="synthetic-label"><span aria-hidden="true"></span>Synthetic business data</span>
+      </div>
+      <div class="company-top-actions">
+        <button id="refresh-company" class="company-button company-button-light" type="button">Refresh data</button>
+        <a class="back-link" href="/" aria-label="Return to run workspace">Run workspace <span class="external-arrow" aria-hidden="true"></span></a>
+      </div>
+    </header>
+
+    <nav class="company-tabs" aria-label="Company sections">
+      <a href="/company?tab=inbox" data-company-tab="inbox">Inbox</a>
+      <a href="/company?tab=accounting" data-company-tab="accounting">Accounting</a>
+      <a href="/company?tab=contacts" data-company-tab="contacts">Contacts</a>
+    </nav>
+
+    <main class="company-main">
+      <div id="company-notice" class="company-notice" role="status" aria-live="polite" hidden></div>
+      <div id="company-content" aria-busy="true">
+        <div class="company-loading" aria-live="polite">Loading company records…</div>
+      </div>
+    </main>
+  </body>
+</html>

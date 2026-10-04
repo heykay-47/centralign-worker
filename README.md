@@ -2,6 +2,8 @@
 
 A small autonomous AI worker that completes business tasks through a real browser. Give it a goal, inspect its actions, approve a proposed change, and review the verified result.
 
+**Live replay:** https://centralign-worker.vercel.app is a read-only replay of the recorded live runs, using the real dashboard and company app. Pick a run under "Select a recent run" to see its steps, screenshots, approval, retry and verified result. Starting new runs needs a local install, because the worker keeps Chromium running and calls the model through your own credentials. Rebuild the replay with `node scripts/build-replay.mjs` and deploy the `replay-site/` folder.
+
 The environment is a simulated company application with synthetic email, invoice and contact data. Model requests, Chromium interactions, record persistence and completion checks are real. The prototype does not claim to control arbitrary websites or desktop applications.
 
 ## Quick start
