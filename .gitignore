@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.data/
+.env
+.agent/
+.impeccable/review/
+playwright-report/
+test-results/

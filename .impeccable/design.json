@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T08:52:28Z",
+  "title": "Design System: Centralign Worker",
+  "extensions": {
+    "colorMeta": {
+      "navy-900": { "role": "primary", "displayName": "Navigation navy" },
+      "ink": { "role": "neutral", "displayName": "Content ink" },
+      "muted": { "role": "neutral", "displayName": "Supporting text" },
+      "line": { "role": "neutral", "displayName": "Panel border" },
+      "line-strong": { "role": "neutral", "displayName": "Control border" },
+      "canvas": { "role": "neutral", "displayName": "Blue-white canvas" },
+      "surface": { "role": "neutral", "displayName": "White panel" },
+      "surface-cool": { "role": "neutral", "displayName": "Cool diagnostic field" },
+      "blue-dark": { "role": "primary", "displayName": "Task action blue" },
+      "blue-hover": { "role": "primary", "displayName": "Task action hover" },
+      "secondary-ink": { "role": "neutral", "displayName": "Secondary action ink" },
+      "nav-text": { "role": "neutral", "displayName": "Navigation text" },
+      "approval-bg": { "role": "secondary", "displayName": "Pending approval yellow" },
+      "approval-ink": { "role": "secondary", "displayName": "Approval copy" },
+      "approval-action": { "role": "secondary", "displayName": "Approval action brown" },
+      "green-pale": { "role": "secondary", "displayName": "Verification tint" },
+      "verified-ink": { "role": "secondary", "displayName": "Verified result ink" },
+      "red": { "role": "secondary", "displayName": "Error and destructive action red" },
+      "red-pale": { "role": "secondary", "displayName": "Error tint" }
+    },
+    "typographyMeta": {
+      "body": { "displayName": "Body", "purpose": "Shared system sans-serif reading text." },
+      "headline": { "displayName": "Workspace heading", "purpose": "Desktop workspace and remembered-facts headings; responsive sizes follow the stylesheet." },
+      "title": { "displayName": "Panel title", "purpose": "Composer and panel hierarchy, with denser context-specific variants." },
+      "field": { "displayName": "Task field", "purpose": "Task textarea; company record inputs retain their own sizing." },
+      "label": { "displayName": "Control label", "purpose": "Task labels and dashboard action text, not a token for smaller pre-review event text." }
+    },
+    "shadows": [
+      { "name": "shadow-panel", "value": "0 2px 7px rgb(0 0 0 / 5%), 0 1px 2px rgb(0 0 0 / 4%)", "purpose": "Existing dashboard and company working-panel separation." },
+      { "name": "dialog", "value": "0 12px 30px rgb(0 0 0 / 18%)", "purpose": "Native destructive-reset confirmation dialog." }
+    ],
+    "motion": [
+      { "name": "control-colors", "value": "150ms ease", "purpose": "Existing button background, border and text color transitions; no positional motion." },
+      { "name": "reduced-motion", "value": ".01ms", "purpose": "Existing transition-duration override under prefers-reduced-motion: reduce; scroll behavior becomes auto." }
+    ],
+    "breakpoints": [
+      { "name": "dashboard-wide", "value": "1600px", "purpose": "Minimum-width query for the capped dashboard main area." },
+      { "name": "dashboard-compact", "value": "1080px", "purpose": "Maximum-width query for tighter rail, panel and header layout." },
+      { "name": "dashboard-mobile", "value": "760px", "purpose": "Maximum-width query for top navigation and stacked work/verification panels; preserve visibility of every destination." },
+      { "name": "dashboard-narrow", "value": "420px", "purpose": "Maximum-width query for additional header and composer wrapping; do not freeze pre-review navigation dimensions." },
+      { "name": "company-compact", "value": "900px", "purpose": "Maximum-width query for stacked accounting and contact forms." },
+      { "name": "company-mobile", "value": "640px", "purpose": "Maximum-width query for company header wrapping, stacked inbox and contained table scrolling." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary task button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The existing start/continue action, with hover, disabled and keyboard-focus states.",
+      "html": "<button class=\"ds-button-primary\" type=\"button\">Start run</button>",
+      "css": ".ds-button-primary { display: inline-flex; min-height: 35px; align-items: center; justify-content: center; gap: 8px; padding: 0 12px; border: 1px solid var(--blue-dark, #194e73); border-radius: 4px; color: var(--surface, #ffffff); background: var(--blue-dark, #194e73); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 650; line-height: 1.2; white-space: nowrap; cursor: pointer; transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease; } .ds-button-primary:hover:not(:disabled) { border-color: #113d5b; background: #113d5b; } .ds-button-primary:focus-visible { outline: 3px solid rgb(27 104 153 / 42%); outline-offset: 2px; } .ds-button-primary:disabled { cursor: not-allowed; opacity: .58; } @media (prefers-reduced-motion: reduce) { .ds-button-primary { transition-duration: .01ms; } }"
+    },
+    {
+      "name": "Secondary task button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "An existing stop, reject or refresh action; secondary to starting or approving a run.",
+      "html": "<button class=\"ds-button-secondary\" type=\"button\">Stop run</button>",
+      "css": ".ds-button-secondary { display: inline-flex; min-height: 35px; align-items: center; justify-content: center; padding: 0 12px; border: 1px solid var(--line-strong, #bdcbd6); border-radius: 4px; color: #31495e; background: var(--surface, #ffffff); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 650; line-height: 1.2; white-space: nowrap; cursor: pointer; transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease; } .ds-button-secondary:hover:not(:disabled) { border-color: #8fa4b5; background: #f4f7f9; } .ds-button-secondary:focus-visible { outline: 3px solid rgb(27 104 153 / 42%); outline-offset: 2px; } .ds-button-secondary:disabled { cursor: not-allowed; opacity: .58; } @media (prefers-reduced-motion: reduce) { .ds-button-secondary { transition-duration: .01ms; } }"
+    },
+    {
+      "name": "Task instructions field",
+      "kind": "input",
+      "refersTo": "task-input",
+      "description": "A labeled, resizable native textarea with the existing task limit and validation.",
+      "html": "<label class=\"ds-task-label\" for=\"ds-task-instructions\">Task instructions</label><textarea class=\"ds-task-input\" id=\"ds-task-instructions\" name=\"task\" rows=\"3\" maxlength=\"2000\" required placeholder=\"Describe a task for the company workspace...\"></textarea>",
+      "css": ".ds-task-label { display: block; margin-bottom: 5px; color: #344c60; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 650; line-height: 1.45; } .ds-task-input { display: block; box-sizing: border-box; width: 100%; min-height: 78px; padding: 9px 10px; border: 1px solid var(--line-strong, #bdcbd6); border-radius: 4px; color: var(--ink, #1d3143); background: var(--surface, #ffffff); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.45; resize: vertical; } .ds-task-input::placeholder { color: #5d7182; opacity: 1; } .ds-task-input:focus-visible { outline: 3px solid rgb(27 104 153 / 42%); outline-offset: 2px; }"
+    },
+    {
+      "name": "Workspace navigation",
+      "kind": "nav",
+      "refersTo": "workspace-navigation",
+      "description": "Desktop navigation state styling. Every destination must remain visible in the live responsive layout.",
+      "html": "<nav class=\"ds-workspace-nav\" aria-label=\"Workspace\"><button class=\"ds-nav-link\" type=\"button\" aria-current=\"page\">Run workspace</button><button class=\"ds-nav-link\" type=\"button\">Remembered facts</button><a class=\"ds-nav-link\" href=\"/company?tab=inbox\" target=\"_blank\" rel=\"noopener noreferrer\">Company simulator</a></nav>",
+      "css": ".ds-workspace-nav { display: grid; gap: 5px; padding: 14px; background: var(--navy-900, #152b40); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-nav-link { display: flex; min-height: 40px; align-items: center; gap: 11px; padding: 0 10px; border: 1px solid transparent; border-radius: 4px; color: #ced9e2; background: transparent; font-family: inherit; font-size: 13px; font-weight: 550; line-height: 1.45; text-align: left; text-decoration: none; cursor: pointer; } .ds-nav-link:hover { color: #fff; background: rgb(255 255 255 / 7%); } .ds-nav-link[aria-current='page'] { border-color: rgb(255 255 255 / 11%); color: #fff; background: #28445d; } .ds-nav-link:focus-visible { outline: 3px solid #a9d7f5; outline-offset: 2px; }"
+    },
+    {
+      "name": "Verified status badge",
+      "kind": "chip",
+      "refersTo": "status-completed",
+      "description": "The completed-state badge. This sample label is illustrative, not evidence that a run passed.",
+      "html": "<span class=\"ds-status-completed\">Completed</span>",
+      "css": ".ds-status-completed { display: inline-flex; min-height: 25px; align-items: center; padding: 2px 8px; border: 1px solid #b8d8c6; border-radius: 20px; color: #236346; background: var(--green-pale, #e5f3eb); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 650; line-height: 1.45; white-space: nowrap; }"
+    },
+    {
+      "name": "Pending approval panel",
+      "kind": "card",
+      "refersTo": "approval-panel",
+      "description": "The inline human checkpoint, with proposed-change details and separate reject/approve controls.",
+      "html": "<section class=\"ds-approval-panel\" aria-labelledby=\"ds-approval-heading\"><div class=\"ds-approval-copy\"><h2 id=\"ds-approval-heading\">Approve this change?</h2><p>Review the proposed write before it is saved.</p><details class=\"ds-approval-details\" open><summary>Proposed change details</summary><p>Synthetic invoice record; no change is authorized by this sample.</p></details></div><div class=\"ds-approval-actions\"><button class=\"ds-approval-reject\" type=\"button\">Reject change</button><button class=\"ds-approval-confirm\" type=\"button\">Approve change</button></div></section>",
+      "css": ".ds-approval-panel { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 17px; border: 1px solid #dec96e; border-radius: var(--radius, 5px); color: #392f15; background: #fff6d8; box-shadow: var(--shadow-panel, 0 2px 7px rgb(0 0 0 / 5%), 0 1px 2px rgb(0 0 0 / 4%)); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.45; } .ds-approval-copy { min-width: 0; } .ds-approval-copy h2 { margin: 4px 0 2px; color: #2f2917; font-size: 15px; font-weight: 680; overflow-wrap: anywhere; } .ds-approval-copy p { max-width: 72ch; margin: 2px 0 0; color: #4e431f; font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; } .ds-approval-details { margin-top: 5px; } .ds-approval-details summary { width: fit-content; color: #594b1c; font-size: 12px; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; } .ds-approval-actions { display: flex; flex: 0 0 auto; gap: 7px; } .ds-approval-reject, .ds-approval-confirm { display: inline-flex; min-height: 35px; align-items: center; justify-content: center; padding: 0 12px; border: 1px solid var(--line-strong, #bdcbd6); border-radius: 4px; color: #31495e; background: var(--surface, #ffffff); font-family: inherit; font-size: 12px; font-weight: 650; line-height: 1.2; white-space: nowrap; cursor: pointer; transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease; } .ds-approval-confirm { border-color: #6c5a1c; color: #fff; background: #5f4d16; } .ds-approval-reject:hover:not(:disabled) { border-color: #8fa4b5; background: #f4f7f9; } .ds-approval-confirm:hover:not(:disabled) { background: #4c3d10; } .ds-approval-reject:focus-visible, .ds-approval-confirm:focus-visible, .ds-approval-details summary:focus-visible { outline: 3px solid rgb(27 104 153 / 42%); outline-offset: 2px; } .ds-approval-reject:disabled, .ds-approval-confirm:disabled { cursor: not-allowed; opacity: .58; } @media (max-width: 760px) { .ds-approval-panel { align-items: flex-start; flex-direction: column; gap: 12px; padding: 13px; } .ds-approval-actions { width: 100%; } .ds-approval-reject, .ds-approval-confirm { flex: 1; } } @media (prefers-reduced-motion: reduce) { .ds-approval-reject, .ds-approval-confirm { transition-duration: .01ms; } }"
+    },
+    {
+      "name": "Source-to-result verification strip",
+      "kind": "custom",
+      "refersTo": "verification-strip",
+      "description": "The existing observed/approved/verified state structure. Sample copy does not attest to a saved result; evidence typography follows the readable-evidence rule.",
+      "html": "<section class=\"ds-verification-strip\" aria-labelledby=\"ds-verification-heading\"><h2 id=\"ds-verification-heading\">Source to result</h2><ol class=\"ds-verification-steps\"><li class=\"ds-verification-step ds-observed\"><span class=\"ds-step-symbol\" aria-hidden=\"true\"></span><span class=\"ds-step-content\"><strong>Source evidence</strong><span>Source observation</span></span></li><li class=\"ds-verification-step ds-approved\"><span class=\"ds-step-symbol\" aria-hidden=\"true\"></span><span class=\"ds-step-content\"><strong>Human checkpoint</strong><span>Approved payload</span></span></li><li class=\"ds-verification-step ds-verified\"><span class=\"ds-step-symbol\" aria-hidden=\"true\"></span><span class=\"ds-step-content\"><strong>Verified result</strong><span>Persisted effect checked</span></span></li></ol></section>",
+      "css": ".ds-verification-strip { padding: 14px 16px 13px; border: 1px solid var(--line, #d6e0e8); border-radius: var(--radius, 5px); color: var(--ink, #1d3143); background: var(--surface, #ffffff); box-shadow: var(--shadow-panel, 0 2px 7px rgb(0 0 0 / 5%), 0 1px 2px rgb(0 0 0 / 4%)); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.45; } .ds-verification-strip h2 { margin: 0; color: #1b3043; font-size: 14px; font-weight: 650; letter-spacing: -.018em; } .ds-verification-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 13px 0 0; padding: 0; list-style: none; } .ds-verification-step { display: grid; grid-template-columns: 17px minmax(0, 1fr); gap: 8px; min-height: 40px; padding: 2px 14px 2px 0; } .ds-verification-step + .ds-verification-step { padding-left: 16px; border-left: 1px solid #dce5eb; } .ds-step-symbol { display: block; width: 11px; height: 11px; margin-top: 3px; border: 1px solid #a9b8c3; border-radius: 50%; background: #f1f4f6; } .ds-observed .ds-step-symbol { border-color: #4c7896; background: #dcebf4; } .ds-approved .ds-step-symbol { border-color: #8b741f; background: #f5df8d; } .ds-verified .ds-step-symbol { border-color: #317654; background: #a8d4ba; } .ds-step-content { display: grid; gap: 1px; min-width: 0; } .ds-step-content strong { color: #31495d; font-size: 12px; font-weight: 700; } .ds-step-content span { color: var(--muted, #586c7e); font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; } .ds-verified .ds-step-content strong, .ds-verified .ds-step-content span { color: #246244; } @media (max-width: 760px) { .ds-verification-strip { padding: 12px; } .ds-verification-steps { grid-template-columns: 1fr; margin-top: 10px; } .ds-verification-step, .ds-verification-step + .ds-verification-step { min-height: 42px; padding: 8px; border-left: 0; } .ds-verification-step + .ds-verification-step { border-top: 1px solid #e5ebef; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The inspection record",
+    "overview": "Centralign uses a compact work interface to make actions, proposed writes and checked results inspectable. Pale blue-white fields separate evidence from the navy navigation. Yellow draws attention to approval; green identifies a verified result. Normal browser controls keep tasks familiar.\n\nThe system comes from `public/dashboard.css`, `public/index.html`, `public/company.css` and `public/company.html`. `PRODUCT.md` supplies the evidence and synthetic-data constraints; `.impeccable/surfaces/public-index-html.md` records the approved direction. This is code-led documentation, not a comp-fidelity claim or a browser-QA verdict.",
+    "keyCharacteristics": [
+      "Compact panels with readable evidence and explicit state labels.",
+      "Native controls, keyboard focus and recoverable errors.",
+      "Synthetic records clearly distinguished from real execution evidence."
+    ],
+    "rules": [
+      { "name": "The state color rule", "body": "Yellow means a human checkpoint, green means a checked result, and red means a failed or cancelled state. Pair color with explicit text.", "section": "colors" },
+      { "name": "The readable evidence rule", "body": "Event messages and inspection details must be at least 12px; keep metadata readable at normal zoom. Do not standardize the smaller pre-review event styles as design tokens.", "section": "typography" }
+    ],
+    "dos": [
+      "Do keep all navigation destinations visible on narrow screens.",
+      "Do make event text, metadata, approval details and full-size captures readable and inspectable.",
+      "Do label synthetic business data and distinguish observations from verified results.",
+      "Do preserve native semantics, visible keyboard focus and explicit state text."
+    ],
+    "donts": [
+      "Don't add marketing heroes, decorative metrics, ornamental imagery or new fonts.",
+      "Don't mark a result verified because the model says it is complete.",
+      "Don't hide evidence behind clipped text, low contrast or a scaled screenshot alone.",
+      "Don't treat this code-led reference as proof of visual fidelity or completed capture QA."
+    ]
+  }
+}

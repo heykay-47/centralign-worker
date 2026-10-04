@@ -1,0 +1,179 @@
+:root {
+  color-scheme: light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --navy-950: #12263a;
+  --navy-900: #152b40;
+  --ink: #1d3143;
+  --muted: #586c7e;
+  --line: #d6e0e8;
+  --line-dark: #bdcbd6;
+  --canvas: #edf3f7;
+  --surface: #fff;
+  --blue: #194e73;
+  --blue-pale: #e6f0f7;
+  --red: #9e3636;
+  --green: #236346;
+  --green-pale: #e5f3eb;
+  --focus: #145a88;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--canvas); }
+body { min-height: 100vh; margin: 0; color: var(--ink); background: var(--canvas); font-size: 14px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { color: inherit; font: inherit; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid rgb(27 104 153 / 42%); outline-offset: 2px; }
+::selection { color: #fff; background: #315f81; }
+
+.company-topbar { display: flex; min-height: 62px; align-items: center; gap: 28px; padding: 0 max(22px, calc((100% - 1400px) / 2)); color: #f5f8fa; background: var(--navy-900); }
+.company-brand { display: flex; flex: 0 0 auto; align-items: center; gap: 9px; color: #fff; font-size: 14px; font-weight: 700; letter-spacing: -.015em; text-decoration: none; }
+.company-mark { display: grid; width: 27px; height: 27px; place-items: center; border: 1px solid rgb(240 247 251 / 42%); border-radius: 4px; font-size: 14px; }
+.company-heading { display: flex; min-width: 0; align-items: center; gap: 12px; }
+.company-heading h1 { margin: 0; color: #fff; font-size: 15px; font-weight: 620; letter-spacing: -.01em; }
+.synthetic-label { display: inline-flex; align-items: center; gap: 6px; color: #d5e1e9; font-size: 11px; white-space: nowrap; }
+.synthetic-label span { width: 6px; height: 6px; border-radius: 50%; background: #83b99b; }
+.company-top-actions { display: flex; align-items: center; gap: 15px; margin-left: auto; }
+.back-link { display: inline-flex; align-items: center; gap: 5px; color: #e5edf2; font-size: 11px; text-decoration: underline; text-decoration-color: #8296a5; text-underline-offset: 3px; white-space: nowrap; }
+.back-link:hover { color: #fff; }
+.external-arrow { position: relative; display: inline-block; width: 10px; height: 10px; }
+.external-arrow::before { position: absolute; right: 0; top: 0; width: 6px; height: 6px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; content: ""; }
+.external-arrow::after { position: absolute; right: 1px; top: 1px; width: 7px; height: 1px; content: ""; background: currentColor; transform: rotate(-45deg); transform-origin: right center; }
+
+.company-tabs { display: flex; min-height: 43px; align-items: stretch; gap: 23px; padding: 0 max(22px, calc((100% - 1400px) / 2)); border-bottom: 1px solid #ccd8e1; background: #f8fafb; }
+.company-tabs a { position: relative; display: inline-flex; align-items: center; color: #52697c; font-size: 12px; font-weight: 550; text-decoration: none; }
+.company-tabs a:hover { color: #203d55; }
+.company-tabs a[aria-current="page"] { color: #1f4f71; font-weight: 680; }
+.company-tabs a[aria-current="page"]::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; content: ""; background: #2d668e; }
+
+.company-main { width: min(100% - 44px, 1400px); margin: 0 auto; padding: 22px 0 48px; }
+.company-notice { margin: 0 0 14px; padding: 10px 12px; border: 1px solid #c5d8e4; border-radius: 4px; color: #244c68; background: #e7f1f7; font-size: 12px; }
+.company-notice[data-tone="error"] { border-color: #e2bfbb; color: #782b2b; background: #fbefed; }
+.company-notice[data-tone="success"] { border-color: #bfd9c9; color: #245b41; background: var(--green-pale); }
+.company-loading { min-height: 180px; padding: 25px 0; color: #586f81; font-size: 12px; }
+.company-page-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin: 0 0 15px; }
+.company-page-heading h2 { margin: 0; color: #1b3043; font-size: 20px; font-weight: 650; letter-spacing: -.025em; }
+.company-page-heading p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+.company-button { display: inline-flex; min-height: 34px; align-items: center; justify-content: center; padding: 0 11px; border: 1px solid transparent; border-radius: 4px; font-size: 11px; font-weight: 650; line-height: 1.2; white-space: nowrap; transition: background-color 150ms ease, border-color 150ms ease; }
+.company-button:disabled { cursor: not-allowed; opacity: .58; }
+.company-button-primary { border-color: var(--blue); color: #fff; background: var(--blue); }
+.company-button-primary:hover:not(:disabled) { border-color: #113d5b; background: #113d5b; }
+.company-button-light { border-color: rgb(236 244 249 / 35%); color: #f2f6f9; background: rgb(255 255 255 / 6%); }
+.company-button-light:hover:not(:disabled) { background: rgb(255 255 255 / 13%); }
+.company-button-secondary { border-color: var(--line-dark); color: #31495e; background: #fff; }
+.company-button-secondary:hover:not(:disabled) { border-color: #8fa4b5; background: #f4f7f9; }
+.company-button-danger { border-color: #9e3636; color: #fff; background: #9e3636; }
+
+.inbox-layout { display: grid; min-height: 540px; grid-template-columns: minmax(250px, 315px) minmax(0, 1fr); border: 1px solid var(--line); border-radius: 5px; background: var(--surface); box-shadow: 0 2px 7px rgb(0 0 0 / 5%), 0 1px 2px rgb(0 0 0 / 4%); }
+.mail-list-panel { min-width: 0; border-right: 1px solid var(--line); }
+.mail-list-heading { display: flex; min-height: 48px; align-items: center; justify-content: space-between; gap: 8px; padding: 0 13px; border-bottom: 1px solid var(--line); }
+.mail-list-heading h3 { margin: 0; font-size: 12px; font-weight: 670; }
+.mail-list-heading span { color: #607587; font-size: 11px; }
+.mail-list { max-height: 640px; overflow: auto; margin: 0; padding: 0; list-style: none; }
+.mail-list-item { border-bottom: 1px solid #e8edf1; }
+.mail-select { display: block; width: 100%; padding: 11px 13px 10px; border: 0; color: inherit; background: #fff; text-align: left; }
+.mail-select:hover { background: #f6f9fb; }
+.mail-select[aria-current="true"] { background: #edf4f8; box-shadow: inset 3px 0 #3a6d8f; }
+.mail-from { display: block; overflow: hidden; color: #263e52; font-size: 11px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.mail-subject { display: block; overflow: hidden; margin-top: 3px; color: #344e62; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.mail-date { display: block; margin-top: 4px; color: #65798a; font-size: 11px; font-variant-numeric: tabular-nums; }
+.message-reader { min-width: 0; padding: 20px 24px 25px; }
+.reader-empty { display: grid; min-height: 400px; align-content: center; justify-items: start; padding: 20px; color: #5c7182; }
+.reader-empty h3 { margin: 0; color: #324c61; font-size: 14px; }
+.reader-empty p { max-width: 42ch; margin: 5px 0 0; font-size: 12px; }
+.message-header { padding-bottom: 14px; border-bottom: 1px solid #e3eaf0; }
+.message-header h2 { margin: 4px 0 7px; color: #1d3347; font-size: 18px; font-weight: 650; line-height: 1.3; letter-spacing: -.02em; }
+.message-sender { margin: 0; color: #354e62; font-size: 12px; }
+.message-date { display: block; margin-top: 4px; color: #64798a; font-size: 10px; }
+.message-id { display: inline-block; margin-top: 8px; padding: 3px 6px; border: 1px solid #dbe4ea; border-radius: 3px; color: #536b7e; background: #f6f9fa; font-size: 11px; }
+.message-body { max-width: 75ch; margin: 17px 0 0; color: #2d4356; font-size: 13px; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+.invoice-source { margin-top: 18px; padding-top: 14px; border-top: 1px solid #e3eaf0; }
+.invoice-source h3 { margin: 0 0 9px; color: #30485c; font-size: 12px; font-weight: 700; }
+.invoice-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 18px; max-width: 720px; margin: 0; }
+.invoice-facts div { min-width: 0; }
+.invoice-facts dt { color: #5d7182; font-size: 11px; }
+.invoice-facts dd { margin: 2px 0 0; color: #253e52; font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.invoice-facts .source-fact { grid-column: 1 / -1; }
+
+.accounting-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(300px, .8fr); align-items: start; gap: 17px; }
+.accounting-table-wrap, .entry-panel, .contacts-list { min-width: 0; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); box-shadow: 0 2px 7px rgb(0 0 0 / 5%), 0 1px 2px rgb(0 0 0 / 4%); }
+.section-heading { display: flex; min-height: 47px; align-items: center; justify-content: space-between; gap: 10px; padding: 0 13px; border-bottom: 1px solid #e4ebf0; }
+.section-heading h3 { margin: 0; font-size: 12px; font-weight: 670; }
+.section-heading span { color: #607587; font-size: 11px; }
+.invoice-table-scroll { overflow-x: auto; }
+.invoice-table { width: 100%; border-collapse: collapse; text-align: left; }
+.invoice-table th { padding: 9px 10px; color: #5d7182; background: #f7f9fa; font-size: 11px; font-weight: 650; white-space: nowrap; }
+.invoice-table td { padding: 10px; border-top: 1px solid #e8edf1; color: #2b4357; font-size: 12px; vertical-align: top; }
+.invoice-table td.amount { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.invoice-table td a { color: #225a81; font-size: 11px; text-decoration: underline; text-underline-offset: 2px; }
+.invoice-table .empty-row td { padding: 22px 12px; color: #607587; text-align: center; }
+.entry-panel { padding-bottom: 14px; }
+.invoice-form { display: grid; gap: 10px; padding: 13px; }
+.form-field { display: grid; gap: 4px; min-width: 0; }
+.form-field label { color: #344c60; font-size: 11px; font-weight: 650; }
+.form-field input { width: 100%; min-width: 0; height: 34px; padding: 0 8px; border: 1px solid #bdcbd6; border-radius: 4px; background: #fff; font-size: 12px; }
+.form-field input::placeholder { color: #65798a; opacity: 1; }
+.form-hint { margin: -2px 0 0; color: #63788a; font-size: 11px; }
+.invoice-form .company-button { justify-self: start; margin-top: 2px; }
+.form-feedback { min-height: 0; margin: 0 13px; color: #245b41; font-size: 12px; }
+.form-feedback:empty { display: none; }
+.form-feedback.is-error { color: var(--red); }
+
+.contacts-list { overflow: hidden; }
+.contact-row { display: grid; grid-template-columns: minmax(170px, .8fr) minmax(0, 1.6fr) auto; align-items: start; gap: 16px; padding: 15px 14px; }
+.contact-row + .contact-row { border-top: 1px solid #e4ebf0; }
+.contact-identity { padding-top: 1px; }
+.contact-company { margin: 0; color: #263e52; font-size: 13px; font-weight: 660; }
+.contact-name { margin: 3px 0 0; color: #526a7d; font-size: 11px; }
+.contact-phone { margin: 2px 0 0; color: #64798a; font-size: 11px; }
+.contact-form { display: grid; grid-template-columns: repeat(3, minmax(120px, 1fr)); gap: 9px; }
+.contact-form .form-field input { height: 32px; }
+.contact-form .company-button { grid-column: 1 / -1; justify-self: start; }
+.contacts-empty { padding: 24px 14px; color: #607587; font-size: 12px; }
+.records-count { color: #607587; font-size: 11px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+
+[hidden] { display: none !important; }
+
+@media (max-width: 900px) {
+  .accounting-layout { grid-template-columns: minmax(0, 1fr); }
+  .contact-row { grid-template-columns: minmax(140px, .7fr) minmax(0, 2fr); }
+  .contact-form { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  .company-topbar { min-height: 58px; flex-wrap: wrap; gap: 8px 14px; padding: 8px 14px; }
+  .company-brand { font-size: 13px; }
+  .company-mark { width: 24px; height: 24px; }
+  .company-heading { flex: 1 1 150px; flex-wrap: wrap; gap: 4px 8px; }
+  .company-heading h1 { font-size: 13px; }
+  .synthetic-label { font-size: 11px; }
+  .company-top-actions { gap: 8px; }
+  .company-top-actions .company-button { min-height: 30px; padding: 0 8px; font-size: 11px; }
+  .back-link { font-size: 10px; }
+  .company-tabs { min-height: 40px; gap: 20px; padding: 0 15px; }
+  .company-main { width: calc(100% - 28px); padding-top: 17px; }
+  .company-page-heading { align-items: flex-start; }
+  .company-page-heading h2 { font-size: 18px; }
+  .inbox-layout { min-height: 0; grid-template-columns: 1fr; }
+  .mail-list-panel { border-right: 0; }
+  .mail-list { display: flex; max-height: 210px; overflow-x: auto; overflow-y: hidden; }
+  .mail-list-item { min-width: 205px; max-width: 245px; flex: 0 0 72%; border-right: 1px solid #e8edf1; border-bottom: 0; }
+  .mail-select { height: 100%; min-height: 100px; }
+  .message-reader { min-height: 300px; padding: 17px 15px 20px; border-top: 1px solid var(--line); }
+  .message-header h2 { font-size: 16px; }
+  .message-body { font-size: 12px; }
+  .invoice-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 12px; }
+  .invoice-table { min-width: 640px; }
+  .accounting-layout { gap: 12px; }
+  .contact-row { grid-template-columns: 1fr; gap: 10px; padding: 13px; }
+  .contact-form { grid-template-columns: 1fr; gap: 8px; }
+  .contact-form .company-button { grid-column: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
